@@ -12,3 +12,5 @@ namespace CleanArch.Domain.Models
         public string ImageUrl { get; set; }
     }
 }
+
+// doto  use  required property
