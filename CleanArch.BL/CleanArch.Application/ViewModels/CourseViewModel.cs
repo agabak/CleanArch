@@ -1,4 +1,4 @@
-﻿using CleanArch.Domain.Models;
+﻿using CleanArch.Info.Data.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;

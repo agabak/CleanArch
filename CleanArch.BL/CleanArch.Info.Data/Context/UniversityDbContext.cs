@@ -1,8 +1,5 @@
-﻿using CleanArch.Domain.Models;
+﻿using CleanArch.Info.Data.Models;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace CleanArch.Info.Data.Context
 {
