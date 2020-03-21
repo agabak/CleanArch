@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CleanArch.Info.Data.Models
+namespace CleanArch.Domain.Models
 {
     public class Course
     {
@@ -12,5 +12,3 @@ namespace CleanArch.Info.Data.Models
         public string ImageUrl { get; set; }
     }
 }
-
-// doto  use  required property

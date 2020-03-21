@@ -1,18 +1,15 @@
 ﻿using CleanArch.Domain.Interfaces;
+using CleanArch.Domain.Models;
 using CleanArch.Info.Data.Context;
-using CleanArch.Info.Data.Models;
-using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Linq;
 
-namespace CleanArch.Domain.Repositories
+namespace CleanArch.Info.Data.Repositories
 {
     public class CourseRepository : ICourseRepository
     {
         private readonly UniversityDbContext _context;
 
-        public CourseRepository(UniversityDbContext  context)
+        public CourseRepository(UniversityDbContext context)
         {
             _context = context;
         }

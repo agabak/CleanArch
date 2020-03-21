@@ -1,5 +1,5 @@
-﻿using CleanArch.Info.Data.Models;
-using System;
+﻿
+using CleanArch.Domain.Models;
 using System.Collections.Generic;
 using System.Text;
 

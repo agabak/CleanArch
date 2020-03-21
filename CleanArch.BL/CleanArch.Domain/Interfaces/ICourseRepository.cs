@@ -1,4 +1,5 @@
-﻿using CleanArch.Info.Data.Models;
+﻿
+using CleanArch.Domain.Models;
 using System.Collections.Generic;
 
 namespace CleanArch.Domain.Interfaces
