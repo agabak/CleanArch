@@ -35,7 +35,6 @@ namespace CleanArch.Infra.IoC
 
             services.AddScoped<UniversityDbContext>();
 
-
         }
     }
 }

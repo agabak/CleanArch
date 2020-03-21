@@ -8,5 +8,6 @@ namespace CleanArch.Application.Interface
     public interface ICourseService
     {
         CourseViewModel GetCourses();
+        void Create(CourseViewModel model);
     }
 }
