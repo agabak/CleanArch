@@ -9,5 +9,7 @@ namespace CleanArch.Application.Interface
     {
         CourseViewModel GetCourses();
         void Create(CourseViewModel model);
+        void Edit(CourseViewModel model);
+        void Delete(CourseViewModel model);
     }
 }

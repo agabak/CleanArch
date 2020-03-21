@@ -38,5 +38,17 @@ namespace CleanArch.Application.Services
 
             _bus.SendCommand(createCourseCommand);
         }
+
+        public void Edit(CourseViewModel model)
+        {
+            var editCourseCommand = new EditCourseCommand(model.Id, model.Name, model.Description, model.ImageUrl);
+            _bus.SendCommand(editCourseCommand);
+        }
+
+        public void Delete(CourseViewModel model)
+        {
+            var deleteCourseCommand = new DeleteCourseCommand(model.Id);
+            _bus.SendCommand(deleteCourseCommand);
+        }
     }
 }

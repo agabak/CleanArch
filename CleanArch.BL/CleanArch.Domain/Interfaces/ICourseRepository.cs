@@ -8,5 +8,7 @@ namespace CleanArch.Domain.Interfaces
     {
         IEnumerable<Course> GetCourses();
         void Add(Course course);
+        void Edit(Course course);
+        void Delete(Course course);
     }
 }
