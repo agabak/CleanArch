@@ -15,6 +15,7 @@ using Microsoft.Extensions.Hosting;
 using CleanArch.Info.Data.Context;
 using CleanArch.Infra.IoC;
 using MediatR;
+using CleanArch.Mvc.Configuration;
 
 namespace CleanArch.Mvc
 {
@@ -38,7 +39,8 @@ namespace CleanArch.Mvc
 
             services.AddDbContext<UniversityDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("universityDBContextConnection")));
 
-            services.AddMediatR(typeof(Startup));
+            services.AddMediatR(typeof(Startup));  //  config  MediatR
+            services.RegisterAutoMapper();  //  register the out mapper 
 
             RegisterServices(services); 
 

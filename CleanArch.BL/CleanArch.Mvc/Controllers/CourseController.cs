@@ -14,9 +14,8 @@ namespace CleanArch.Mvc.Controllers
             _service = service;
         }
         public IActionResult Index()
-        {
-            var model = _service.GetCourses();
-            return View(model);
+        { 
+            return View(_service.GetCourses());
         }
     }
 }

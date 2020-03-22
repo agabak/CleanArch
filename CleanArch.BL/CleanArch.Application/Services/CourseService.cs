@@ -8,6 +8,8 @@ using System.Linq;
 using CleanArch.Domain.Models;
 using CleanArch.Domain.Core.Bus;
 using CleanArch.Domain.Commands;
+using AutoMapper;
+using AutoMapper.QueryableExtensions;
 
 namespace CleanArch.Application.Services
 {
@@ -16,39 +18,34 @@ namespace CleanArch.Application.Services
 
         private readonly ICourseRepository _courseRepository;
         private readonly IMediatorHandler _bus;
-        public CourseService(ICourseRepository courseRepository, IMediatorHandler bus)
+        private readonly IMapper _mapper;
+        public CourseService(ICourseRepository courseRepository, 
+                             IMediatorHandler bus, IMapper mapper)
         {
             _courseRepository = courseRepository;
             _bus = bus;
+            _mapper = mapper;
         }
 
-        public CourseViewModel GetCourses()
+        public IEnumerable<CourseViewModel> GetCourses()
         {
-            return new CourseViewModel
-            {
-                Courses = _courseRepository.GetCourses()
-            };
+            return _courseRepository.GetCourses().ProjectTo<CourseViewModel>(_mapper.ConfigurationProvider);
         }
 
 
-        public void Create(CourseViewModel model)
+        public void Create(CreateCourseViewModel model)
         {
-            var createCourseCommand = new CreateCourseCommand(
-                 model.Name, model.Description,model.ImageUrl);
-
-            _bus.SendCommand(createCourseCommand);
+            _bus.SendCommand(_mapper.Map<CreateCourseCommand>(model));
         }
 
-        public void Edit(CourseViewModel model)
+        public void Edit(EditCourseViewModel model)
         {
-            var editCourseCommand = new EditCourseCommand(model.Id, model.Name, model.Description, model.ImageUrl);
-            _bus.SendCommand(editCourseCommand);
+            _bus.SendCommand(_mapper.Map<EditCourseCommand>(model));
         }
 
-        public void Delete(CourseViewModel model)
+        public void Delete(DeleteCourseViewModel model)
         {
-            var deleteCourseCommand = new DeleteCourseCommand(model.Id);
-            _bus.SendCommand(deleteCourseCommand);
+            _bus.SendCommand(_mapper.Map<DeleteCourseCommand>(model));
         }
     }
 }

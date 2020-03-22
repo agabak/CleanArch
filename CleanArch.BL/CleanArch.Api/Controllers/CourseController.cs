@@ -21,14 +21,14 @@ namespace CleanArch.Api.Controllers
         }
 
         [HttpPost]
-        public IActionResult  Post([FromBody]  CourseViewModel model)
+        public IActionResult  Post([FromBody]  CreateCourseViewModel model)
         {
             _service.Create(model);
             return Ok(model);
         }
 
         [HttpPut("{id}")]
-        public IActionResult Put([FromBody] CourseViewModel model, int id)
+        public IActionResult Put([FromBody] EditCourseViewModel model, int id)
         {
             if (id < 0) return BadRequest("Unvalide ID");
             model.Id = id;
@@ -37,7 +37,7 @@ namespace CleanArch.Api.Controllers
         }
 
         [HttpDelete("{id}")]
-        public IActionResult Delete([FromBody] CourseViewModel model, int id)
+        public IActionResult Delete([FromBody] DeleteCourseViewModel model, int id)
         {
             if (id < 0) return BadRequest();
             model.Id = id;
